@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white1">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="325dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="272dp"
+        android:background="@drawable/ll_shape_color_background"
+
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+
+        <EditText
+            android:drawableLeft="@drawable/baseline_supervised_user_circle_24"
+            android:id="@+id/et_user"
+            style="@style/editTextTheme"
+            android:hint="user">
+
+
+        </EditText>
+
+        <EditText
+            android:drawableLeft="@drawable/baseline_password_24"
+            android:id="@+id/et_password"
+            style="@style/editTextTheme"
+            android:hint="password"
+            android:password="true">
+
+
+        </EditText>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="hint"
+                android:imeOptions="actionDone"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="160dp"
+        android:fontFamily="@font/alfa_slab_one"
+        android:text="ZenZap!"
+        android:textColor="@color/cyan"
+        android:textSize="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="4dp"
+        android:text="Remember me"
+        android:textColor="@color/gris"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
+
+        android:id="@+id/btnLogin"
+        style="@style/btnTheme"
+        android:layout_width="245dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="80dp"
+        android:drawableLeft="@drawable/bttn_icon_change"
+
+        android:text="Login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <Button
+        android:id="@+id/btnShare"
+        style="@style/btnTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="144dp"
+        android:text="Share"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+
+    <Button
+        android:id="@+id/btnNXTSign"
+        style="@style/btnTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="144dp"
+        android:text="Sign"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="240dp"
+        android:layout_height="228dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/z_logo" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="56dp"
+        android:text="Read User Licence Agreement"
+        android:textColor="@color/cyan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="200dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+
+        <ImageButton
+            style="@style/btn_group"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_twitter" />
+
+        <ImageButton
+            style="@style/btn_group"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_facebook" />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
