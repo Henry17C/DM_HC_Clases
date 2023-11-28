@@ -1,14 +1,47 @@
 package com.test.dm_clases_hc.data.entities
 
-data class Users(var id: Int,
-                 var userName: String,
-                 var password: String)
+data class Users(
+                 var username: String?=null,
+                 var password: String?=null
+){
+    var id: Int=-1
+    var firstName: String ="No Registrado"
+    var lastName: String = "No Registrado"
+    var profile:String=""
+    //CONSTRUCTOR0
+    constructor( username: String?,
+        password: String?, id:Int
+    ): this(
+    username,
+    password
+    ){this.id=id}
 
-//nombre, apellido, perfil
+    //CONSTRUCTOR1
+    constructor(
+        id: Int, username: String?,
+        password: String?, profile:String
+    ) : this(
+        username,
+        password
+    ){
+        this.profile=profile
+    }
 
-data class UserSign(var nombre: String,
-                 var apellido: String,
-                 var perfil: String)
-//costructor vacio-> No existe posibilidad de hacer eso, debe
-//tener al menos un parametro
+    //CONSTRUCTOR2
+    constructor(
+         username: String?,
+        password: String?,id: Int, firstName: String, lastName: String
+    ) : this(
+        username,
+        password
+    ){
+        this.firstName=firstName
+        this.lastName=lastName
+        this.id=id
+    }
+
+
+
+}
+
 

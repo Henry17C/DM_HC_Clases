@@ -50,16 +50,18 @@ class LoginFActivity : AppCompatActivity() {
             var user=binding.etUser.text.toString()
             var pass=binding.etPassword.text.toString()
 
-            if(!login.checkUserAndPassword(user,pass)){
-                Snackbar.make(binding.btnLogin,"usuario o" +
-                        "password incorrecto", Snackbar.LENGTH_LONG).show()
-            }else{
-
+            var check= Login().checkLoginRetunrInt(user,pass)
+            println("LA IDDDDD: "+ check)
+            if(check>0){
                 //EXPLLICITO
                 val intent= Intent(this,MainActivity::class.java)
-                intent.putExtra(Constants.TEXT_VARIABLE,"mi primera chamba")
-                intent.putExtra(Constants.USER_NAME,user)
+                //intent.putExtra(Constants.TEXT_VARIABLE,"mi primera chamba")
+                //Serialiazamos unicamente lo que necesitamos
+                intent.putExtra(Constants.USER_ID,check)
                 startActivity(intent)
+            }else{
+                Snackbar.make(binding.btnLogin,"usuario o" +
+                        "password incorrecto", Snackbar.LENGTH_LONG).show()
             }
 
         }
