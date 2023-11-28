@@ -60,6 +60,9 @@ class LoginFActivity : AppCompatActivity() {
                 intent.putExtra(Constants.TEXT_VARIABLE,"mi primera chamba")
                 intent.putExtra(Constants.USER_NAME,user)
                 startActivity(intent)
+
+
+                //intent.putExtra(Constants.USER_ID,1)
             }
 
         }

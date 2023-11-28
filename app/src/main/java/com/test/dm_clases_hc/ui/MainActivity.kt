@@ -5,8 +5,10 @@ import android.os.Bundle
 import com.coyago.testapp.ui.core.Constants
 import com.creative.ipfyandroid.Ipfy
 import com.creative.ipfyandroid.IpfyClass
+import com.google.android.material.snackbar.Snackbar
 import com.test.dm_clases_hc.R
 import com.test.dm_clases_hc.databinding.ActivityMainBinding
+import com.test.dm_clases_hc.logic.login.Login
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +28,22 @@ class MainActivity : AppCompatActivity() {
 
         getIpAddres()
         getGreeting()
+
+        intent.extras.let {
+            var userId=it?.getInt(Constants.USER_ID.toString())
+
+            if (userId!=null){
+                val user = Login().getUserName(userId)
+                 binding.txtWelcome.text= user.firstName.toString()
+
+            }else{
+                Snackbar.make(binding.txtWelcome,"Ocurrio un Error",
+                    Snackbar.LENGTH_LONG).show()
+            }
+        }
+
+
+
 
     }
 
