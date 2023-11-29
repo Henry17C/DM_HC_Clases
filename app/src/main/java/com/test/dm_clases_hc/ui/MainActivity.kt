@@ -1,5 +1,6 @@
 package com.test.dm_clases_hc.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.coyago.testapp.ui.core.Constants
@@ -29,7 +30,15 @@ class MainActivity : AppCompatActivity() {
         getIpAddres()
         getGreeting()
         showMessage()
+        intControl()
 
+    }
+
+    private fun intControl(){
+        binding.bntAtras.setOnClickListener {
+            val intent= Intent(this,LoginFActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
