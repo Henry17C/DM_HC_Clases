@@ -1,12 +1,13 @@
-package com.test.dm_clases_hc.ui
+package com.test.dm_clases_hc.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.test.dm_clases_hc.logic.login.Login
+import com.test.dm_clases_hc.logic.login.LoginUserCase
 import com.coyago.testapp.ui.core.Constants
 import com.google.android.material.snackbar.Snackbar
 import com.test.dm_clases_hc.R
+import com.test.dm_clases_hc.data.core.My_Applycation
 import com.test.dm_clases_hc.databinding.ActivityLoginfBinding
 
 class LoginFActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class LoginFActivity : AppCompatActivity() {
 
 
 
-    private val login: com.test.dm_clases_hc.logic.login.Login = com.test.dm_clases_hc.logic.login.Login()
+    private val login: LoginUserCase = LoginUserCase(My_Applycation.getConnectionDB())
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +28,7 @@ class LoginFActivity : AppCompatActivity() {
 
         //setContentView(R.layout.activity_login) ya no lo necesite
         binding= ActivityLoginfBinding.inflate(layoutInflater)
-        setContentView(binding.root)// me dice que hay una realcion aqui y que recupere
+        setContentView(binding.root)// me dice que hay una relacion aqui y que recupere
 
 
 
@@ -50,14 +51,14 @@ class LoginFActivity : AppCompatActivity() {
             var user=binding.etUser.text.toString()
             var pass=binding.etPassword.text.toString()
 
-            var check= Login().checkLoginRetunrInt(user,pass)
+            var check= LoginUserCase(My_Applycation.getConnectionDB())!!.checkLoginRetunrInt(user,pass)
             println("LA IDDDDD: "+ check)
             if(check>0){
                 //EXPLLICITO
-                val intent= Intent(this,MainActivity::class.java)
+                val intent= Intent(this, MainActivity::class.java)
                 //intent.putExtra(Constants.TEXT_VARIABLE,"mi primera chamba")
                 //Serialiazamos unicamente lo que necesitamos
-                intent.putExtra(Constants.USER_ID,check)
+                intent.putExtra(Constants.USER_ID,check)  ///  <----------  CONSULTAR QUE HACE EXACTAMENTE ESTA PARTE
                 startActivity(intent)
             }else{
                 Snackbar.make(binding.btnLogin,"usuario o" +
@@ -79,7 +80,7 @@ class LoginFActivity : AppCompatActivity() {
         }
 
         binding.btnNXTSign.setOnClickListener {
-            val intentSign= Intent(this,SignActivity::class.java)
+            val intentSign= Intent(this, SignActivity::class.java)
             intentSign.putExtra(Constants.TEXT_VARIABLE,"mi segunda chamba")
             startActivity(intentSign)
         }

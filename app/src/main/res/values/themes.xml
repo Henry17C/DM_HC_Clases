@@ -8,14 +8,18 @@
     <style name="Theme.TestApp" parent="Base.Theme.TestApp" />
 
     <style name="editTextTheme">
-        <item name="android:layout_marginRight">20dp</item>
-        <item name="android:layout_marginLeft">20dp</item>
+
+
         <item name="android:background">@drawable/et_shape_color_background</item>
         <item name="android:layout_width">250dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:textColor">@color/gris</item>
+
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:layout_marginTop">8dp</item>
+
         <item name="android:paddingStart">20dp</item>
 
 

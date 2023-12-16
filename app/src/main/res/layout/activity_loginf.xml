@@ -11,8 +11,10 @@
         android:id="@+id/linearLayout"
         android:layout_width="325dp"
         android:layout_height="200dp"
+
         android:layout_marginStart="40dp"
         android:layout_marginTop="272dp"
+
         android:background="@drawable/ll_shape_color_background"
 
         android:gravity="center"
@@ -154,6 +156,7 @@
 
         <ImageButton
             style="@style/btn_group"
+
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:adjustViewBounds="true"

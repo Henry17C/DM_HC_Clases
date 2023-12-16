@@ -3,9 +3,8 @@ package com.test.dm_clases_hc.data.repository
 import com.test.dm_clases_hc.data.entities.Users
 
 class
-DBUsers {
-
-    fun getListUsers(): List<Users> {
+UsersRepository {
+     fun getListUsers(): List<Users> {
 
 
 

@@ -1,4 +1,4 @@
-package com.test.dm_clases_hc.ui
+package com.test.dm_clases_hc.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

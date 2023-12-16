@@ -14,16 +14,19 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.673"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.423"
         tools:text="192...12" />
+
 
     <TextView
         android:id="@+id/txt_welcome"
-        android:layout_width="194dp"
-        android:layout_height="116dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="96dp"
+        android:layout_width="269dp"
+        android:layout_height="105dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/alfa_slab_one"
         android:text="TextView"
         android:textColor="@color/white"
@@ -31,32 +34,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <FrameLayout
+        android:id="@+id/frm_container"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.819">
+
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation_menu_bar"
+        />
+
+
     <TextView
         android:id="@+id/txt_show_id"
         android:layout_width="91dp"
         android:layout_height="32dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="72dp"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_welcome" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="208dp"
-        android:layout_height="252dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginBottom="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/logo" />
 
     <Button
         android:id="@+id/bnt_atras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="340dp"
         android:text="Atras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
