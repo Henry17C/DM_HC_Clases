@@ -63,4 +63,12 @@ dependencies {
     ksp 'androidx.room:room-compiler:2.5.0'
 
 
+    //coil manejo de imagenes
+    implementation("io.coil-kt:coil:2.5.0")
+
+    //animacion
+    implementation ("com.airbnb.android:lottie:3.4.0")
+
+
+
 }

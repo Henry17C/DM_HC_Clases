@@ -4,19 +4,24 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.coyago.testapp.ui.core.Constants
 import com.google.android.material.snackbar.Snackbar
 import com.test.dm_clases_hc.R
 import com.test.dm_clases_hc.ui.fragments.FavoritesFragment
 import com.test.dm_clases_hc.data.core.My_Applycation
+import com.test.dm_clases_hc.data.entities.Users
 import com.test.dm_clases_hc.databinding.ActivityMainBinding
 import com.test.dm_clases_hc.logic.login.LoginUserCase
+import com.test.dm_clases_hc.ui.adapters.UsersAdapter
 import com.test.dm_clases_hc.ui.fragments.ListFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -77,6 +82,7 @@ class MainActivity : AppCompatActivity() {
 
 
         checkDataBase()
+        initRecycleview()
     }
 
 
@@ -145,13 +151,7 @@ class MainActivity : AppCompatActivity() {
             Log.d(Constants.TAG, usrs.toString())
         }
 
-
-
         ///en las corruninas no importa  nadie espera a nadie, la corrunita padre se libro de sus hijo, no es como el la programasion clasica, se ejecutan todas a la vez
-
-
-
-
 
     }
 
@@ -238,6 +238,26 @@ class MainActivity : AppCompatActivity() {
 */
 
 
+
+
+    private fun initRecycleview(){
+        lifecycleScope.launch(Dispatchers.Main) {
+            val usrs= withContext(Dispatchers.IO){ getUserList()}
+            val adapter: UsersAdapter= UsersAdapter(usrs)
+            binding.rvUsers.adapter= adapter
+            binding.rvUsers.layoutManager=
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+        binding.animationView.visibility= View.GONE
+        }
+
+    }
+
+
+    suspend fun  getUserList():List<Users>{
+
+        delay(7000)
+    return LoginUserCase(My_Applycation.getConnectionDB()!!).getAllUsers()
+    }
 
 
 
