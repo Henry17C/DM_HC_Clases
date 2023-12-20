@@ -7,7 +7,8 @@ import androidx.room.RoomDatabase
 import com.test.dm_clases_hc.data.dao.UsersDAO
 import com.test.dm_clases_hc.data.entities.Users
 
-
+//Define las entidades que participan en la base de datos.
+//roporciona un método abstracto para obtener los DAO relacionados con cada entidad.
 @Database(
     entities = [Users::class],
     version = 1
@@ -18,7 +19,8 @@ abstract class DBRepository: RoomDatabase() { // Clase Abstracta -> No se hereda
 
 }
 
-
+//Se encarga de construir la base de datos Room o entregar una conexión existente a la misma.
+//Utiliza Room.databaseBuilder para configurar y crear la base de datos.
 class DBConnection() { // Genera una conexion
     fun getConnection(context: Context):DBRepository=
          Room.databaseBuilder(

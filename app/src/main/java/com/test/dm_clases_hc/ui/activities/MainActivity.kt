@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.lifecycleScope
-
 import com.coyago.testapp.ui.core.Constants
-import com.google.android.material.snackbar.Snackbar
 import com.test.dm_clases_hc.R
 import com.test.dm_clases_hc.ui.fragments.FavoritesFragment
 import com.test.dm_clases_hc.data.core.My_Applycation

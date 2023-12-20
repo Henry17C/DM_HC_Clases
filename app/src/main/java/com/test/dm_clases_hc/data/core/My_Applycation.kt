@@ -16,8 +16,7 @@ class My_Applycation:Application() {
         super.onCreate()
         con = DBConnection().getConnection(applicationContext)
 
-        GlobalScope.launch(Dispatchers.IO){
-
+            GlobalScope.launch(Dispatchers.IO ){
             LoginUserCase(con).insertUsers()
 
         }

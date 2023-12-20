@@ -2,7 +2,6 @@ package com.test.dm_clases_hc.logic.login
 
 import android.content.Context
 import android.util.Log
-import com.coyago.testapp.ui.core.Constants
 import com.test.dm_clases_hc.data.entities.Users
 import com.test.dm_clases_hc.data.repository.DBRepository
 import com.test.dm_clases_hc.data.repository.UsersRepository
