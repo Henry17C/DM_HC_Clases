@@ -1,11 +1,11 @@
-package com.test.dm_clases_hc.logic.login
+package com.test.dm_clases_hc.logic.usercases.local.login
 
 import android.content.Context
 import android.util.Log
 import com.coyago.testapp.ui.core.Constants
-import com.test.dm_clases_hc.data.entities.Users
-import com.test.dm_clases_hc.data.repository.DBRepository
-import com.test.dm_clases_hc.data.repository.UsersRepository
+import com.test.dm_clases_hc.data.local.entities.Users
+import com.test.dm_clases_hc.data.network.repository.DBRepository
+import com.test.dm_clases_hc.data.network.repository.UsersRepository
 
 
 class LoginUserCase (val connection: DBRepository){
@@ -28,7 +28,7 @@ class LoginUserCase (val connection: DBRepository){
 
     }
 
-    suspend fun getUserName(userId:Int):Users{
+    suspend fun getUserName(userId:Int): Users {
 
            /// UserR
         return UsersRepository().getListUsers().first{
@@ -37,7 +37,7 @@ class LoginUserCase (val connection: DBRepository){
     }
 
 
-    suspend fun getUserNameDB(userId:Int, context: Context):Users{
+    suspend fun getUserNameDB(userId:Int, context: Context): Users {
 
        return   connection.getUserDAO().getOneUser(userId)
 

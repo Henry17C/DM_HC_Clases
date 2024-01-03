@@ -1,9 +1,9 @@
 package com.test.dm_clases_hc.data.core
 
 import android.app.Application
-import com.test.dm_clases_hc.data.repository.DBConnection
-import com.test.dm_clases_hc.data.repository.DBRepository
-import com.test.dm_clases_hc.logic.login.LoginUserCase
+import com.test.dm_clases_hc.data.network.repository.DBConnection
+import com.test.dm_clases_hc.data.network.repository.DBRepository
+import com.test.dm_clases_hc.logic.usercases.local.login.LoginUserCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -29,7 +29,7 @@ class My_Applycation:Application() {
    companion object{
         private lateinit var con: DBRepository
 
-        fun getConnectionDB():DBRepository{
+        fun getConnectionDB(): DBRepository {
            return con
                     }
    }

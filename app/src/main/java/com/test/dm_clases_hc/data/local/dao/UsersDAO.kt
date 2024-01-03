@@ -1,11 +1,11 @@
-package com.test.dm_clases_hc.data.dao
+package com.test.dm_clases_hc.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.test.dm_clases_hc.data.entities.Users
+import com.test.dm_clases_hc.data.local.entities.Users
 
 @Dao
 interface UsersDAO {
@@ -23,7 +23,7 @@ interface UsersDAO {
     fun updateUser(users: List<Users>)
 
     @Delete
-    fun DeleteUser(user:Users)
+    fun DeleteUser(user: Users)
 
 
 

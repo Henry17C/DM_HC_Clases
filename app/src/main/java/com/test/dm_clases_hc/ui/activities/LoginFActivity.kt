@@ -3,7 +3,7 @@ package com.test.dm_clases_hc.ui.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.test.dm_clases_hc.logic.login.LoginUserCase
+import com.test.dm_clases_hc.logic.usercases.local.login.LoginUserCase
 import com.coyago.testapp.ui.core.Constants
 import com.google.android.material.snackbar.Snackbar
 import com.test.dm_clases_hc.R

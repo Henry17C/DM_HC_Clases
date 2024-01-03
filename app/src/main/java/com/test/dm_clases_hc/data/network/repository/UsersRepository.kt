@@ -1,6 +1,6 @@
-package com.test.dm_clases_hc.data.repository
+package com.test.dm_clases_hc.data.network.repository
 
-import com.test.dm_clases_hc.data.entities.Users
+import com.test.dm_clases_hc.data.local.entities.Users
 
 class
 UsersRepository {

@@ -1,4 +1,4 @@
-package com.test.dm_clases_hc.data.entities
+package com.test.dm_clases_hc.data.local.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
