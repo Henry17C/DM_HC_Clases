@@ -15,6 +15,7 @@ import com.test.dm_clases_hc.ui.fragments.FavoritesFragment
 import com.test.dm_clases_hc.data.core.My_Applycation
 import com.test.dm_clases_hc.data.local.entities.Users
 import com.test.dm_clases_hc.databinding.ActivityMainBinding
+import com.test.dm_clases_hc.logic.usercases.jikan.JikanAnimeUserCase
 import com.test.dm_clases_hc.logic.usercases.local.login.LoginUserCase
 import com.test.dm_clases_hc.ui.adapters.UsersAdapter
 import com.test.dm_clases_hc.ui.fragments.ListFragment
@@ -83,6 +84,12 @@ class MainActivity : AppCompatActivity() {
 
         checkDataBase()
         initRecycleview()
+
+        val a=  JikanAnimeUserCase()
+
+
+
+
     }
 
 
