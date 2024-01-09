@@ -29,7 +29,7 @@ data class Data(
     val status: String,
     val streaming: List<com.test.dm_clases_hc.data.network.endpoint.jikan.anime.Streaming>,
     val studios: List<com.test.dm_clases_hc.data.network.endpoint.jikan.anime.Studio>,
-    val synopsis: String,
+    val snapsis: String,
     val theme: com.test.dm_clases_hc.data.network.endpoint.jikan.anime.Theme,
     val themes: List<com.test.dm_clases_hc.data.network.endpoint.jikan.anime.ThemeX>,
     val title: String,

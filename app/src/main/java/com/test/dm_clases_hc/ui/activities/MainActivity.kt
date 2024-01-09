@@ -16,6 +16,7 @@ import com.test.dm_clases_hc.data.core.My_Applycation
 import com.test.dm_clases_hc.data.local.entities.Users
 import com.test.dm_clases_hc.databinding.ActivityMainBinding
 import com.test.dm_clases_hc.logic.usercases.jikan.JikanAnimeUserCase
+import com.test.dm_clases_hc.logic.usercases.jikan.JikanGetTopAnimesUserCase
 import com.test.dm_clases_hc.logic.usercases.local.login.LoginUserCase
 import com.test.dm_clases_hc.ui.adapters.UsersAdapter
 import com.test.dm_clases_hc.ui.fragments.ListFragment
@@ -27,6 +28,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
+
+
+
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,13 +91,26 @@ class MainActivity : AppCompatActivity() {
 
         val a=  JikanAnimeUserCase()
 
+        getAllTopAnimes()
+
+
 
 
 
     }
 
+    private fun getAllTopAnimes(){
+        lifecycleScope.launch(Dispatchers.IO) {
+            var x= JikanGetTopAnimesUserCase().getResponse()
+
+            Log.d(Constants.TAG, x.pagination.toString())
+
+            Log.d(Constants.TAG1,  x.data.get(1).images.jpg.image_url.toString())
 
 
+
+        }
+    }
 
 
     private fun intControl(){

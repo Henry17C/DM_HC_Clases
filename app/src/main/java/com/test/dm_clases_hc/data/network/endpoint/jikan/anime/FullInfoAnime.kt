@@ -12,6 +12,6 @@ fun FullInfoAnime.getFullAnimeLG() = FullInfoAnimeLG(
     this.data.title_english,
     this.data.images.jpg.small_image_url,
     this.data.images.jpg.large_image_url,
-    this.data.synopsis
+    this.data.snapsis
 )
 
