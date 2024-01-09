@@ -14,6 +14,7 @@ import com.test.dm_clases_hc.R
 import com.test.dm_clases_hc.ui.fragments.FavoritesFragment
 import com.test.dm_clases_hc.data.core.My_Applycation
 import com.test.dm_clases_hc.data.local.entities.Users
+import com.test.dm_clases_hc.data.network.endpoint.jikan.top.Data
 import com.test.dm_clases_hc.databinding.ActivityMainBinding
 import com.test.dm_clases_hc.logic.usercases.jikan.JikanAnimeUserCase
 import com.test.dm_clases_hc.logic.usercases.jikan.JikanGetTopAnimesUserCase
@@ -89,9 +90,9 @@ class MainActivity : AppCompatActivity() {
         checkDataBase()
         initRecycleview()
 
-        val a=  JikanAnimeUserCase()
 
-        getAllTopAnimes()
+
+      //  getAllTopAnimes()
 
 
 
@@ -99,20 +100,20 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun getAllTopAnimes(){
+  /*  private fun getAllTopAnimes():List<Data>{
         lifecycleScope.launch(Dispatchers.IO) {
-            var x= JikanGetTopAnimesUserCase().getResponse()
+            var x= JikanGetTopAnimesUserCase().getResponse().data
 
-            Log.d(Constants.TAG, x.pagination.toString())
+           // Log.d(Constants.TAG, x.pagination.toString())
 
-            Log.d(Constants.TAG1,  x.data.get(1).images.jpg.image_url.toString())
+           // Log.d(Constants.TAG1,  x.data.get(1).images.jpg.image_url.toString())
 
-
+            return x
 
         }
     }
 
-
+*/
     private fun intControl(){
         binding.bntAtras.setOnClickListener {
             val intent= Intent(this, LoginFActivity::class.java)
@@ -266,8 +267,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initRecycleview(){
         lifecycleScope.launch(Dispatchers.Main) {
-            val usrs= withContext(Dispatchers.IO){ getUserList()}
-            val adapter: UsersAdapter= UsersAdapter(usrs)
+            val animes= withContext(Dispatchers.IO){ JikanGetTopAnimesUserCase().getResponse().data}
+            val adapter: UsersAdapter= UsersAdapter(animes)
             binding.rvUsers.adapter= adapter
             binding.rvUsers.layoutManager=
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
@@ -282,6 +283,7 @@ class MainActivity : AppCompatActivity() {
         delay(7000)
     return LoginUserCase(My_Applycation.getConnectionDB()!!).getAllUsers()
     }
+
 
 
 

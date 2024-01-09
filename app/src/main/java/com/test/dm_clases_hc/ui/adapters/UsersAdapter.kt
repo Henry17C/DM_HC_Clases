@@ -8,10 +8,11 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.test.dm_clases_hc.R
 import com.test.dm_clases_hc.data.local.entities.Users
+import com.test.dm_clases_hc.data.network.endpoint.jikan.top.Data
 import com.test.dm_clases_hc.databinding.UsersItemsBinding
 
 //lista de users
-class UsersAdapter(private val listUsers:List<Users>): RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {
+class UsersAdapter(private val listTopAnime:List<Data>): RecyclerView.Adapter<UsersAdapter.UsersViewHolder>() {
 
 
     class UsersViewHolder(view: View):RecyclerView.ViewHolder(view) {
@@ -20,15 +21,15 @@ class UsersAdapter(private val listUsers:List<Users>): RecyclerView.Adapter<User
         // manera de acuerdo a las necesidades de la aplicacion, es maneja la logica ligada a la UI, no a la logica de negocio
         private var binding: UsersItemsBinding = UsersItemsBinding.bind(view)
 
-        fun render(item: Users){
-            binding.imageView.load("https://previews.123rf.com/images/bahtiarmaulana/bahtiarmaulana2204/bahtiarmaulana220400040/185159316-rebanada-de-dibujos-animados-de-pizza-ilustraci%C3%B3n-de-dibujos-animados-vectoriales-im%C3%A1genes.jpg"){
+        fun render(item: Data){
+            binding.imageView.load(item.images.jpg.large_image_url.toString()){
                 crossfade(true)
                 placeholder(R.drawable.image)
                 transformations(CircleCropTransformation())
             }
-            binding.txtId.text=item.id.toString()
-            binding.txtName.text=item.firstName.toString()
-            binding.txtLastName.text=item.lastName.toString()
+            binding.txtId.text=item.mal_id.toString()
+            binding.txtName.text=item.title_english.toString()
+            binding.txtLastName.text=item.title_japanese.toString()
         }
 
     }
@@ -44,10 +45,10 @@ class UsersAdapter(private val listUsers:List<Users>): RecyclerView.Adapter<User
     }
 
      //cuantos elementos hay para poder pintar en pantalla
-    override fun getItemCount(): Int = listUsers.size
+    override fun getItemCount(): Int = listTopAnime.size
 
      override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
-     holder.render(listUsers[position])
+     holder.render(listTopAnime[position])
     }
 
 
