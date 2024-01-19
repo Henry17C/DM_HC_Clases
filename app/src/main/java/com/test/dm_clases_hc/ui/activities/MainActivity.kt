@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 
@@ -19,6 +20,7 @@ import com.test.dm_clases_hc.databinding.ActivityMainBinding
 import com.test.dm_clases_hc.logic.usercases.jikan.JikanAnimeUserCase
 import com.test.dm_clases_hc.logic.usercases.jikan.JikanGetTopAnimesUserCase
 import com.test.dm_clases_hc.logic.usercases.local.login.LoginUserCase
+import com.test.dm_clases_hc.ui.adapters.AnimeAdapter
 import com.test.dm_clases_hc.ui.adapters.UsersAdapter
 import com.test.dm_clases_hc.ui.fragments.ListFragment
 import kotlinx.coroutines.Dispatchers
@@ -89,6 +91,7 @@ class MainActivity : AppCompatActivity() {
 
         checkDataBase()
         initRecycleview()
+        initListenersRB()
 
 
 
@@ -264,8 +267,8 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-    private fun initRecycleview(){
+/*
+    private fun initRecycleview1(){
         lifecycleScope.launch(Dispatchers.Main) {
             val animes= withContext(Dispatchers.IO){ JikanGetTopAnimesUserCase().getResponse().data}
             val adapter: UsersAdapter= UsersAdapter(animes)
@@ -276,6 +279,53 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+*/
+
+    private fun initRecycleview(){
+
+
+        lifecycleScope.launch(Dispatchers.Main) {
+
+            val jikan = JikanGetTopAnimesUserCase()
+            val animes= withContext(Dispatchers.IO){ jikan.getResponse()}
+            animes.onSuccess { animes->
+                val adapter= AnimeAdapter(animes.data)
+                binding.rvUsers.adapter= adapter
+                binding.rvUsers.layoutManager=
+                    LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+
+            }
+
+            animes.onFailure {
+                //aqui puedo mandar un intent, snack bar o terminar la app. Depende de los que se desea mostrar la user
+                //manejo de errores en la ui
+
+
+            }
+
+            binding.animationView.visibility= View.GONE
+
+
+        }
+
+    }
+
+
+    private fun initListenersRB(){
+        binding.swiperv.setOnRefreshListener{
+
+            val adapter= AnimeAdapter(listOf())
+            binding.rvUsers.adapter= adapter
+            binding.rvUsers.layoutManager=
+                LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+
+            initRecycleview()
+            binding.swiperv.isRefreshing= false
+        }
+    }
+
+
+
 
 
     suspend fun  getUserList():List<Users>{

@@ -4,8 +4,8 @@ import android.content.Context
 import android.util.Log
 import com.coyago.testapp.ui.core.Constants
 import com.test.dm_clases_hc.data.local.entities.Users
-import com.test.dm_clases_hc.data.network.repository.DBRepository
-import com.test.dm_clases_hc.data.network.repository.UsersRepository
+import com.test.dm_clases_hc.data.local.repository.DBRepository
+import com.test.dm_clases_hc.data.local.repository.UsersRepository
 
 
 class LoginUserCase (val connection: DBRepository){

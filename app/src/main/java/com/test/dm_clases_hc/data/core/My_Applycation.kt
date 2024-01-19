@@ -1,8 +1,8 @@
 package com.test.dm_clases_hc.data.core
 
 import android.app.Application
-import com.test.dm_clases_hc.data.network.repository.DBConnection
-import com.test.dm_clases_hc.data.network.repository.DBRepository
+import com.test.dm_clases_hc.data.local.repository.DBConnection
+import com.test.dm_clases_hc.data.local.repository.DBRepository
 import com.test.dm_clases_hc.logic.usercases.local.login.LoginUserCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

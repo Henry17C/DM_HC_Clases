@@ -10,7 +10,10 @@ import com.test.dm_clases_hc.data.network.endpoint.jikan.top.TopAnimes
 import com.test.dm_clases_hc.logic.entities.FullInfoAnimeLG
 
 class JikanGetTopAnimesUserCase {
-    suspend fun getResponse() : TopAnimes {
+
+    suspend fun getResponse() : Result<TopAnimes> {
+
+        var result: Result<TopAnimes>? = null//MAnejo de errores con seled
         var infoAnime = TopAnimes()
         try {
             val baseService = RetrofitBase.getRetrofitJikanConnection()
@@ -20,13 +23,17 @@ class JikanGetTopAnimesUserCase {
             if(call.isSuccessful){
                 val a = call.body()!!
                 infoAnime=a
+                result = Result.success(infoAnime)
+
             }else{
                 Log.e(Constants.TAG, "Error en el llamado del API Jikan")
+                result=Result.failure(Exception("Error en el llamado del API Jikan"))
             }
         }catch (ex:Exception){
             Log.e(Constants.TAG, ex.stackTraceToString())
+            result= Result.failure(Exception (ex))
         }
-        return infoAnime
+        return result!!
     }
 }
 
